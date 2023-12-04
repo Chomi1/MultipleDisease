@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Heart Disease Profile{% endblock %}
+
+{% block content %}
+    <h1>Heart Disease Profile</h1>
+    
+    {% if prediction_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                    <th>Chest Pain Type</th>
+                    <th>Resting Blood Pressure</th>
+                    <th>Cholesterol</th>
+                    <th>Fasting Blood Sugar</th>
+                    <th>Resting Electrocardiographic Results</th>
+                    <th>Maximum Heart Rate Achieved</th>
+                    <th>Exercise Induced Angina</th>
+                    <th>ST Depression Induced by Exercise</th>
+                    <th>Slope of the Peak Exercise ST Segment</th>
+                    <th>Number of Major Vessels Colored by Fluoroscopy</th>
+                    <th>Thal</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in prediction_data %}
+                    <tr>
+                        <td>{{ data.timestamp }}</td>
+                        <td>{{ data.age }}</td>
+                        <td>{{ data.sex }}</td>
+                        <td>{{ data.cp }}</td>
+                        <td>{{ data.trestbps }}</td>
+                        <td>{{ data.chol }}</td>
+                        <td>{{ data.fbs }}</td>
+                        <td>{{ data.restecg }}</td>
+                        <td>{{ data.thalach }}</td>
+                        <td>{{ data.exang }}</td>
+                        <td>{{ data.oldpeak }}</td>
+                        <td>{{ data.slope }}</td>
+                        <td>{{ data.ca }}</td>
+                        <td>{{ data.thal }}</td>
+                        <td>{% if data.prediction == 0 %}
+                                Negative
+                            {% else %}
+                                Positive
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No prediction data available.</p>
+    {% endif %}
+    
+{% endblock %}

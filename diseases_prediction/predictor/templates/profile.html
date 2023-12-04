@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1>Results</h1>
+    <ul>
+        <li><a href="{% url 'heart_disease_profile' %}">Heart Disease Prediction</a></li>
+        <li><a href="{% url 'diabetes_profile' %}">Diabetes Prediction</a></li>
+    </ul>
+
+    {% endblock %}

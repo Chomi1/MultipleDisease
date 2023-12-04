@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Diabetes Profile{% endblock %}
+
+{% block content %}
+    <h1>Diabetes Profile</h1>
+    
+    {% if prediction_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Pregnancies</th>
+                    <th>Glucose</th>
+                    <th>Blood Pressure</th>
+                    <th>Skin Thickness</th>
+                    <th>Insulin</th>
+                    <th>Body Mass Index</th>
+                    <th>Diabetes Pedigree Function</th>
+                    <th>Age</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in prediction_data %}
+                    <tr>
+                        <td>{{ data.timestamp }}</td>
+                        <td>{{ data.pregnancies }}</td>
+                        <td>{{ data.glucose }}</td>
+                        <td>{{ data.blood_pressure }}</td>
+                        <td>{{ data.skin_thickness }}</td>
+                        <td>{{ data.insulin }}</td>
+                        <td>{{ data.bmi }}</td>
+                        <td>{{ data.diabetes_pedigree_function }}</td>
+                        <td>{{ data.age }}</td>
+                        <td>{% if data.prediction == 0 %}
+                                Negative
+                            {% else %}
+                                Positive
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No prediction data available.</p>
+    {% endif %}
+    
+{% endblock %}

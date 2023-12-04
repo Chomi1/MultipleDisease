@@ -1,0 +1,22 @@
+{% extends 'result.html' %}
+
+{% block title %}Heart Disease Result{% endblock %}
+
+{% block heading %}Heart Disease Result{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if prediction == 0 %}
+            Great News!
+        {% else %}
+            <span class="attention-text">Attention!</span>
+        {% endif %}
+    </h1>
+    <p>
+        {% if prediction == 0 %}
+            Fortunately, there is no diagnosis of heart disease.
+        {% else %}
+            The person has been diagnosed with heart disease. Immediate action may be required.
+        {% endif %}
+    </p>
+{% endblock %}
