@@ -5,6 +5,7 @@
 
 {% block content %}
 
+
     {% if prediction_data %}
         <table>
             <thead>
@@ -24,6 +25,7 @@
                     <th>Number of Major Vessels Colored by Fluoroscopy</th>
                     <th>Thal</th>
                     <th>Prediction</th>
+                    <th>Action</th> <!-- New column for delete button -->
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +51,12 @@
                                 Positive
                             {% endif %}
                         </td>
+                        <td>
+                            <form method="post" action="{% url 'delete_heartdisease_data' pk=data.pk %}">
+                                {% csrf_token %}
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -56,5 +64,6 @@
     {% else %}
         <p>No prediction data available.</p>
     {% endif %}
+
     
 {% endblock %}

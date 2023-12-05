@@ -5,125 +5,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <title>{% block title %}Result{% endblock %}</title>
+    <title>Profile</title>
+    <style>
+        
+
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        
+        .container-fluid {
+            padding-right: 25px;
+            padding-left: 25px;
+            background: linear-gradient(135deg, #00c6a9, #005670);
+        }
+        .result-hero {
+            background: linear-gradient(135deg, #00c6a9, #005670);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            width: 100%;
+            position: relative; /* Set position to relative for positioning the logo box */
+        }
+
+        .logo-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #ffffff; /* White background for the logo box */
+            padding: 40px 45px;
+        }
+
+        .navbar-brand img {
+            width: 55px;
+        }
+        .result-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+        
+        .result-hero {
+            background-color: #00c6a9;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        
+        .result-heading {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        
+        
+        
+        .result-detail-box {
+            
+            padding: 20px;
+            text-align: center;
+            
+        }
+        
+        .result-box {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            
+            margin: 20px;
+            width: 45%; /* Adjust the width as needed */
+            max-width: 400px; /* Set a max-width to ensure a reasonable size on larger screens */
+            border: 2px solid #00c6a9;
+        }
+        .result-box h1 {
+            color: #00c6a9;
+            font-size: 2em;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        
+        
+        /* Additional styles for the given HTML code */
+        
+        .result-heading {
+            color: #ffffff;
+            text-align: center;
+            font-size: 50px;
+           
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        button.btn {
+            background-color: #00c6a9;
+            color: #ffffff;
+            font-size: large;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Set a specific width for the button */
+        }
+        
+        button.btn:hover {
+            color: #00c6a9;
+           
+        }    
+     </style>
 </head>
 
 <body>
     <header>
-        <a class='navbar-brand' href="{% url 'index_page' %}" class="logo-container">
-            <img src="{% static 'images/logo.png' %}" alt="Your Logo" class="logo">
-        </a>
-        <style>
+        <div class="container-fluid">
+            <div class="result-hero">
+                <div class="logo-box">
+                    <a class="navbar-brand" href="{% url 'index_page' %}">
+                        <img src="{% static 'images/logo.png' %}" alt="" />
+                    </a>
+                </div>
+                <h1 class="result-heading">PROFILE</h1>
+            </div>
+        </div>
         
-
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
-.navbar-brand {
-  background-color: #ffffff;
-  padding: 15px 35px;
-}
-
-.logo-container {
-    position: fixed;
-    top: 20px;
-    left: 55px;
-    z-index: 1000;
-}
-
-.logo {
-    width: 65px;
-    height: auto;
-}
-
-.result-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    flex-direction: column;
-}
-
-.result-hero {
-    background: linear-gradient(135deg, #00c6a9, #005670);
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-    width: 100%;
-}
-
-.result-heading {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-
-
-.result-detail-box {
-    
-    padding: 20px;
-    text-align: center;
-}
-
-
-
-/* Additional styles for the given HTML code */
-
-h1 {
-    font-size: 2.5em;
-    color: #ffffff;
-    text-align: center;
-    margin-top: 50px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-.result-box {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 20px;
-    width: 45%; /* Adjust the width as needed */
-    max-width: 400px; /* Set a max-width to ensure a reasonable size on larger screens */
-    border: 2px solid #00c6a9;
-}
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
-button.btn {
-    background: linear-gradient(135deg, #00c6a9, #005670);
-    color: #ffffff;
-    font-size: large;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Set a specific width for the button */
-}
-
-button.btn:hover {
-    color: #00c6a9;
-   
-}
-
-
-        </style>
     </header>
             <div class="result-container">
-                    <div class="result-hero">
-                        <h1 class="result-heading">Results</h1>
-                    </div>
+                   
 
                     <div class="result-box">
+                        <h1>
+                            Hello, <span style="text-transform:capitalize;">{{ user.username }}!</span>
+                        </h1>
                         <ul>
                             <li class="result-detail-box"><a href="{% url 'heart_disease_profile' %}">
                                 <button class="btn">Heart Disease Prediction</button>

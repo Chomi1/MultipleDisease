@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
-
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import HeartDiseasePredictionData, DiabetesPredictionData
 from django.utils import timezone
@@ -114,6 +114,15 @@ def heart_disease_profile(request):
 
     return render_with_pmain(request, 'heart_disease_profile.html', {'prediction_data': prediction_data})
 
+def delete_diabetes_data(request, pk):
+    data_instance = get_object_or_404(DiabetesPredictionData, pk=pk)
+
+    # Check if the user making the request is the owner of the data
+    if request.user == data_instance.user:
+        data_instance.delete()
+
+    return redirect('diabetes_profile') 
+
 @login_required
 def diabetes_prediction(request):
     if request.method == 'POST':
@@ -167,3 +176,11 @@ def diabetes_profile(request):
 
     return render_with_pmain(request, 'diabetes_profile.html', {'prediction_data': prediction_data})
 
+def delete_heartdisease_data(request, pk):
+    data_instance = get_object_or_404(HeartDiseasePredictionData, pk=pk)
+
+    # Check if the user making the request is the owner of the data
+    if request.user == data_instance.user:
+        data_instance.delete()
+
+    return redirect('heart_disease_profile') 
