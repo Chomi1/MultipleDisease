@@ -1,51 +1,62 @@
-{% extends 'base.html' %}
+{% extends 'pmain.html' %}
 {% load static %}
 
-{% block title %}Diabetes Profile{% endblock %}
+{% block title %}Heart Disease Profile{% endblock %}
 
 {% block content %}
-    <h1>Diabetes Profile</h1>
-    
-    {% if prediction_data %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Timestamp</th>
-                    <th>Pregnancies</th>
-                    <th>Glucose</th>
-                    <th>Blood Pressure</th>
-                    <th>Skin Thickness</th>
-                    <th>Insulin</th>
-                    <th>Body Mass Index</th>
-                    <th>Diabetes Pedigree Function</th>
-                    <th>Age</th>
-                    <th>Prediction</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for data in prediction_data %}
+
+
+        {% if prediction_data %}
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ data.timestamp }}</td>
-                        <td>{{ data.pregnancies }}</td>
-                        <td>{{ data.glucose }}</td>
-                        <td>{{ data.blood_pressure }}</td>
-                        <td>{{ data.skin_thickness }}</td>
-                        <td>{{ data.insulin }}</td>
-                        <td>{{ data.bmi }}</td>
-                        <td>{{ data.diabetes_pedigree_function }}</td>
-                        <td>{{ data.age }}</td>
-                        <td>{% if data.prediction == 0 %}
-                                Negative
-                            {% else %}
-                                Positive
-                            {% endif %}
-                        </td>
+                        <th>Timestamp</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Chest Pain Type</th>
+                        <th>Resting Blood Pressure</th>
+                        <th>Cholesterol</th>
+                        <th>Fasting Blood Sugar</th>
+                        <th>Resting Electrocardiographic Results</th>
+                        <th>Maximum Heart Rate Achieved</th>
+                        <th>Exercise Induced Angina</th>
+                        <th>ST Depression Induced by Exercise</th>
+                        <th>Slope of the Peak Exercise ST Segment</th>
+                        <th>Number of Major Vessels Colored by Fluoroscopy</th>
+                        <th>Thal</th>
+                        <th>Prediction</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No prediction data available.</p>
-    {% endif %}
-    
+                </thead>
+                <tbody>
+                    {% for data in prediction_data %}
+                        <tr>
+                            <td>{{ data.timestamp }}</td>
+                            <td>{{ data.age }}</td>
+                            <td>{{ data.sex }}</td>
+                            <td>{{ data.cp }}</td>
+                            <td>{{ data.trestbps }}</td>
+                            <td>{{ data.chol }}</td>
+                            <td>{{ data.fbs }}</td>
+                            <td>{{ data.restecg }}</td>
+                            <td>{{ data.thalach }}</td>
+                            <td>{{ data.exang }}</td>
+                            <td>{{ data.oldpeak }}</td>
+                            <td>{{ data.slope }}</td>
+                            <td>{{ data.ca }}</td>
+                            <td>{{ data.thal }}</td>
+                            <td>
+                                {% if data.prediction == 0 %}
+                                    <span class="negative">Negative</span>
+                                {% else %}
+                                    <span class="positive">Positive</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No prediction data available.</p>
+        {% endif %}
+    </div>
 {% endblock %}

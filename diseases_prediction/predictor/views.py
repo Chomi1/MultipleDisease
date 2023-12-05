@@ -14,6 +14,10 @@ def render_with_base(request, template_name, context=None):
 def render_with_result(request, template_name, context=None):
     return render(request, template_name, context)
 
+def render_with_pmain(request, template_name, context=None):
+    return render(request, template_name, context)
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -23,7 +27,7 @@ def register(request):
             return redirect('login')  # Redirect to your home page
     else:
         form = UserCreationForm()
-    return render_with_base (request, 'registration.html', {'form': form})
+    return render (request, 'registration.html', {'form': form})
 
 def user_login(request):
     if request.method == 'POST':
@@ -34,7 +38,7 @@ def user_login(request):
             return redirect('index_page')  # Redirect to your home page
     else:
         form = AuthenticationForm()
-    return render_with_base(request, 'login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
 def user_logout(request):
     logout(request)
@@ -45,7 +49,7 @@ def admin_page(request):
     return render_with_base(request, 'admin.html')
 
 def profile_page(request):
-    return render_with_base(request, 'profile.html')
+    return render(request, 'profile.html')
 
 def index_page(request):
     return render_with_base(request, 'index.html')
@@ -108,7 +112,7 @@ def heart_disease_profile(request):
     # Use filter instead of get to handle the case where multiple objects are returned
     prediction_data = HeartDiseasePredictionData.objects.filter(user=user)
 
-    return render(request, 'heart_disease_profile.html', {'prediction_data': prediction_data})
+    return render_with_pmain(request, 'heart_disease_profile.html', {'prediction_data': prediction_data})
 
 @login_required
 def diabetes_prediction(request):
@@ -148,9 +152,9 @@ def diabetes_prediction(request):
 
         prediction_instance.save()
 
-        return render(request, 'diabetes_result.html', {'prediction': prediction[0]})
+        return render_with_base(request, 'diabetes_result.html', {'prediction': prediction[0]})
 
-    return render(request, 'diabetes_prediction.html')
+    return render_with_base(request, 'diabetes_prediction.html')
 
 
 @login_required
@@ -161,5 +165,5 @@ def diabetes_profile(request):
     # Use filter instead of get to handle the case where multiple objects are returned
     prediction_data = DiabetesPredictionData.objects.filter(user=user)
 
-    return render(request, 'diabetes_profile.html', {'prediction_data': prediction_data})
+    return render_with_pmain(request, 'diabetes_profile.html', {'prediction_data': prediction_data})
 

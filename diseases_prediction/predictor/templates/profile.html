@@ -1,12 +1,138 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Profile{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>{% block title %}Result{% endblock %}</title>
+</head>
 
-{% block content %}
-<h1>Results</h1>
-    <ul>
-        <li><a href="{% url 'heart_disease_profile' %}">Heart Disease Prediction</a></li>
-        <li><a href="{% url 'diabetes_profile' %}">Diabetes Prediction</a></li>
-    </ul>
+<body>
+    <header>
+        <a class='navbar-brand' href="{% url 'index_page' %}" class="logo-container">
+            <img src="{% static 'images/logo.png' %}" alt="Your Logo" class="logo">
+        </a>
+        <style>
+        
 
-    {% endblock %}
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar-brand {
+  background-color: #ffffff;
+  padding: 15px 35px;
+}
+
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 55px;
+    z-index: 1000;
+}
+
+.logo {
+    width: 65px;
+    height: auto;
+}
+
+.result-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.result-hero {
+    background: linear-gradient(135deg, #00c6a9, #005670);
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.result-heading {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+
+
+.result-detail-box {
+    
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Additional styles for the given HTML code */
+
+h1 {
+    font-size: 2.5em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.result-box {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    width: 45%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a max-width to ensure a reasonable size on larger screens */
+    border: 2px solid #00c6a9;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button.btn {
+    background: linear-gradient(135deg, #00c6a9, #005670);
+    color: #ffffff;
+    font-size: large;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Set a specific width for the button */
+}
+
+button.btn:hover {
+    color: #00c6a9;
+   
+}
+
+
+        </style>
+    </header>
+            <div class="result-container">
+                    <div class="result-hero">
+                        <h1 class="result-heading">Results</h1>
+                    </div>
+
+                    <div class="result-box">
+                        <ul>
+                            <li class="result-detail-box"><a href="{% url 'heart_disease_profile' %}">
+                                <button class="btn">Heart Disease Prediction</button>
+                            </a></li>
+                            <li class="result-detail-box"><a href="{% url 'diabetes_profile' %}">
+                                <button class="btn">Diabetes Prediction</button>
+                            </a></li>
+                        </ul>
+                     </div>
+                </div>
+            </body>
+            </html>
