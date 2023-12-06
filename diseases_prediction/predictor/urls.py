@@ -16,4 +16,5 @@ urlpatterns = [
     path('diabetes_profile/', diabetes_profile, name='diabetes_profile'),
     path('heartdisease/delete/<int:pk>/', delete_heartdisease_data, name='delete_heartdisease_data'),
     path('diabetes/delete/<int:pk>/', delete_diabetes_data, name='delete_diabetes_data'),
+
 ]

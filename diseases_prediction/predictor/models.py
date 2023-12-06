@@ -54,10 +54,11 @@ class DiabetesPredictionData(models.Model):
     
     # contact section
 class ContactMessage(models.Model):
-    full_name = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone_number = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=15)
     message = models.TextField()
 
     def __str__(self):
         return self.full_name
+    
