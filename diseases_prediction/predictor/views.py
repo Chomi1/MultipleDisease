@@ -114,14 +114,14 @@ def heart_disease_profile(request):
 
     return render_with_pmain(request, 'heart_disease_profile.html', {'prediction_data': prediction_data})
 
-def delete_diabetes_data(request, pk):
-    data_instance = get_object_or_404(DiabetesPredictionData, pk=pk)
+def delete_heartdisease_data(request, pk):
+    data_instance = get_object_or_404(HeartDiseasePredictionData, pk=pk)
 
     # Check if the user making the request is the owner of the data
     if request.user == data_instance.user:
         data_instance.delete()
 
-    return redirect('diabetes_profile') 
+    return redirect('heart_disease_profile') 
 
 @login_required
 def diabetes_prediction(request):
@@ -176,11 +176,13 @@ def diabetes_profile(request):
 
     return render_with_pmain(request, 'diabetes_profile.html', {'prediction_data': prediction_data})
 
-def delete_heartdisease_data(request, pk):
-    data_instance = get_object_or_404(HeartDiseasePredictionData, pk=pk)
+
+
+def delete_diabetes_data(request, pk):
+    data_instance = get_object_or_404(DiabetesPredictionData, pk=pk)
 
     # Check if the user making the request is the owner of the data
     if request.user == data_instance.user:
         data_instance.delete()
 
-    return redirect('heart_disease_profile') 
+    return redirect('diabetes_profile') 

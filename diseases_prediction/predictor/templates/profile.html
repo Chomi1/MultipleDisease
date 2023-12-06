@@ -82,7 +82,7 @@
             border: 2px solid #00c6a9;
         }
         .result-box h1 {
-            color: #00c6a9;
+            color:#252525; 
             font-size: 2em;
             margin-top: 50px;
             margin-bottom: 15px;
@@ -112,7 +112,7 @@
         }
         
         button.btn {
-            background-color: #00c6a9;
+            background-color: #252525;
             color: #ffffff;
             font-size: large;
             padding: 15px 30px;
@@ -124,7 +124,7 @@
         }
         
         button.btn:hover {
-            color: #00c6a9;
+            color: #252525;
            
         }    
      </style>
@@ -136,7 +136,7 @@
             <div class="result-hero">
                 <div class="logo-box">
                     <a class="navbar-brand" href="{% url 'index_page' %}">
-                        <img src="{% static 'images/logo.png' %}" alt="" />
+                        <img src="{% static 'images/heartlogo.png' %}" alt="" />
                     </a>
                 </div>
                 <h1 class="result-heading">PROFILE</h1>
@@ -149,7 +149,7 @@
 
                     <div class="result-box">
                         <h1>
-                            Hello, <span style="text-transform:capitalize;">{{ user.username }}!</span>
+                            Hello, <span style="text-transform:capitalize; color: #00c6a9;">{{ user.username }}!</span>
                         </h1>
                         <ul>
                             <li class="result-detail-box"><a href="{% url 'heart_disease_profile' %}">
