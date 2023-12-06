@@ -5,7 +5,10 @@ from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import HeartDiseasePredictionData, DiabetesPredictionData
 from django.utils import timezone
+from .forms import ContactForm
 import pickle
+
+
 # Create your views here.
 
 def render_with_base(request, template_name, context=None):
@@ -185,4 +188,16 @@ def delete_diabetes_data(request, pk):
     if request.user == data_instance.user:
         data_instance.delete()
 
-    return redirect('diabetes_profile') 
+    return redirect('diabetes_profile')
+
+
+def index_page(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index_page')  # Redirect to the same page after successful submission
+    else:
+        form = ContactForm()
+
+    return render(request, 'index.html', {'form': form})
