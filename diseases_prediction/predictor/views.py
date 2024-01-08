@@ -7,6 +7,8 @@ from .models import HeartDiseasePredictionData, DiabetesPredictionData
 from django.utils import timezone
 from .forms import ContactForm
 import pickle
+from django.http import JsonResponse
+
 
 
 # Create your views here.
@@ -167,8 +169,6 @@ def diabetes_prediction(request):
         return render_with_base(request, 'diabetes_result.html', {'prediction': prediction[0]})
 
     return render_with_base(request, 'diabetes_prediction.html')
-
-
 @login_required
 def diabetes_profile(request):
     # Assuming you are trying to retrieve data for the currently logged-in user
@@ -201,3 +201,48 @@ def index_page(request):
         form = ContactForm()
 
     return render(request, 'index.html', {'form': form})
+
+
+
+
+def generate_chart_data(request):
+    user = request.user
+    prediction_data = HeartDiseasePredictionData.objects.filter(user=user)
+
+    # Count the number of negative and positive predictions
+    negative_count = 0
+    positive_count = 0
+
+    for data in prediction_data:
+        if data.prediction == 0:
+            negative_count += 1
+        else:
+            positive_count += 1
+
+    chart_data = {
+        'negativeCount': negative_count,
+        'positiveCount': positive_count,
+    }
+
+    return JsonResponse(chart_data)
+
+def generate_chart_data(request):
+    user = request.user
+    prediction_data = DiabetesPredictionData.objects.filter(user=user)
+
+    # Count the number of negative and positive predictions
+    negative_count = 0
+    positive_count = 0
+
+    for data in prediction_data:
+        if data.prediction == 0:
+            negative_count += 1
+        else:
+            positive_count += 1
+
+    chart_data = {
+        'negativeCount': negative_count,
+        'positiveCount': positive_count,
+    }
+
+    return JsonResponse(chart_data)

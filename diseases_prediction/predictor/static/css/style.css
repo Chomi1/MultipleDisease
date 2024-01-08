@@ -119,7 +119,7 @@ a:focus {
 
 .navbar-brand {
   background-color: #ffffff;
-  padding: 15px 35px;
+  padding: 10px 20px;
 }
 
 .navbar-brand img {
@@ -784,7 +784,6 @@ a:focus {
 
 .contact_section {
   position: relative;
-  margin-bottom: 5000px;
 }
 
 .contact_section .heading_container {
