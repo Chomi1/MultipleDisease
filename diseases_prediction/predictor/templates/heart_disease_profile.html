@@ -74,7 +74,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.getElementById('generate-chart-btn').addEventListener('click', function () {
-            fetch('/generate_chart/')  // Update with your actual endpoint
+            fetch('/generate_heartdisease_chart/')  // Update with your actual endpoint
                 .then(response => response.json())
                 .then(chartData => {
                     generatePieChart(chartData);

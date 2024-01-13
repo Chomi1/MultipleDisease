@@ -205,7 +205,7 @@ def index_page(request):
 
 
 
-def generate_chart_data(request):
+def generate_heartdisease_chart_data(request):
     user = request.user
     prediction_data = HeartDiseasePredictionData.objects.filter(user=user)
 
@@ -226,7 +226,7 @@ def generate_chart_data(request):
 
     return JsonResponse(chart_data)
 
-def generate_chart_data(request):
+def generate_diabetes_chart_data(request):
     user = request.user
     prediction_data = DiabetesPredictionData.objects.filter(user=user)
 

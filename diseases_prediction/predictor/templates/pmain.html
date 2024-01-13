@@ -13,15 +13,16 @@
         html {
             height: 100%;
             margin: 0;
+            font-family: sans-serif;
         }
 
         .container-fluid {
             padding-right: 25px;
             padding-left: 25px;
-            background: linear-gradient(135deg, #00c6a9, #005670);
+            background:  #00c6a9;
         }
         .result-hero {
-            background: linear-gradient(135deg, #00c6a9, #005670);
+            background:#00c6a9;
             color: #fff;
             padding: 40px 0;
             text-align: center;
@@ -34,11 +35,11 @@
             top: 0;
             left: 0;
             background-color: #ffffff; /* White background for the logo box */
-            padding: 30px 45px;
+            padding: 22px 25px;
         }
 
         .navbar-brand img {
-            width: 55px;
+            width: 90px;
         }
 
         .result-heading {
@@ -146,7 +147,7 @@
             <div class="result-hero">
                 <div class="logo-box">
                     <a class="navbar-brand" href="{% url 'index_page' %}">
-                        <img src="{% static 'images/heart1.jpg' %}" alt="" />
+                        <img src="{% static 'images/logoc4.png' %}" alt="" />
                     </a>
                 </div>
                 <h1 class="result-heading">{% block title %}{% endblock %}</h1>

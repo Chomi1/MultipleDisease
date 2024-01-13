@@ -34,7 +34,7 @@
                     <td>{{ data.insulin }}</td>
                     <td>{{ data.bmi }}</td>
                     <td>{{ data.diabetes_pedigree_function }}</td>
-                    <td>{% if data.outcome == 0 %}
+                    <td>{% if data.prediction == 0 %}
                             Negative
                         {% else %}
                             Positive
@@ -62,7 +62,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.getElementById('generate-chart-btn').addEventListener('click', function () {
-        fetch('/generate_chart/')  // Update with your actual endpoint
+        fetch('/generate_diabetes_chart/')  // Update with your actual endpoint
             .then(response => response.json())
             .then(chartData => {
                 generatePieChart(chartData);
