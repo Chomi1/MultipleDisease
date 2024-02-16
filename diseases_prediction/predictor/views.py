@@ -246,3 +246,8 @@ def generate_diabetes_chart_data(request):
     }
 
     return JsonResponse(chart_data)
+
+
+
+def improve_health(request):
+    return render(request, 'improve_health.html')

@@ -7,6 +7,24 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/result.css' %}">
     <title>{% block title %}Result{% endblock %}</title>
+    <style>
+        .improve-box
+        {
+            display: inline-block;
+            padding: 10px 45px;
+            background-color: #00c6a9;
+            color: #ffffff;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            /*color: #00c6a9;*/
+            
+        }
+        a, a:hover, a:focus
+        {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,6 +43,7 @@
                 {% block content %}{% endblock %}
             </div>
         </div>
+        <a href="{% url 'improve_health' %}" class="improve-box">tips for health</a>
     </div>
 </body>
 
