@@ -19,4 +19,7 @@
             The person has been diagnosed with diabetes. Immediate action may be required.
         {% endif %}
     </p>
+    {% if prediction != 0 %}
+        <a href="{% url 'improve_diabetes' %}" class="improve-box">tips for health</a>
+        {% endif %}
 {% endblock %}

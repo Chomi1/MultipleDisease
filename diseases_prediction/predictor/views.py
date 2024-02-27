@@ -249,5 +249,22 @@ def generate_diabetes_chart_data(request):
 
 
 
+# def improve_health(request):
+#     return render(request, 'improve_health.html')
+
+
+
+def render_with_improve_health(request, template_name, context=None):
+    return render(request, template_name, context)
+
 def improve_health(request):
-    return render(request, 'improve_health.html')
+    return render_with_improve_health(request, 'improve_health.html')
+
+def improve_heart(request):
+    return render_with_improve_health(request, 'improve_heart.html')
+
+def improve_diabetes(request):
+    return render_with_improve_health(request, 'improve_diabetes.html')
+
+# def render_with_result(request, template_name, context=None):
+#     return render(request, template_name, context)
