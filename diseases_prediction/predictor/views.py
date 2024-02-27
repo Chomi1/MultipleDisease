@@ -76,7 +76,7 @@ def heart_disease_prediction(request):
         thal = int(request.POST.get('thal'))
         features = [[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]]
 
-        with open('predictor/heart_disease_model.pkl', 'rb') as model_file:
+        with open('predictor/heart.pkl', 'rb') as model_file:
             model = pickle.load(model_file)
 
        
@@ -143,7 +143,7 @@ def diabetes_prediction(request):
         # Create a feature list
         features2 = [[pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]]
 
-        with open('predictor/diabetes_model.pkl', 'rb') as model_file:
+        with open('predictor/diabetes.pkl', 'rb') as model_file:
             model = pickle.load(model_file)
 
         
@@ -246,3 +246,8 @@ def generate_diabetes_chart_data(request):
     }
 
     return JsonResponse(chart_data)
+
+def diabetes_doc(request):
+    # Your view logic here
+    pass
+

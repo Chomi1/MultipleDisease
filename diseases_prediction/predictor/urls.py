@@ -18,5 +18,6 @@ urlpatterns = [
     path('diabetes/delete/<int:pk>/', delete_diabetes_data, name='delete_diabetes_data'),
     path('generate_diabetes_chart/', generate_diabetes_chart_data, name='generate_diabetes_chart_data'),
     path('generate_heartdisease_chart/', generate_heartdisease_chart_data, name='generate_heartdisease_chart_data'),
-
+    
+    
 ]
