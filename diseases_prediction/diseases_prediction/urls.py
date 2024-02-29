@@ -19,6 +19,10 @@ from django.urls import path ,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "Heart Disease & Diabetes Prediction Admin"
+admin.site.site_title = "Heart Disease & Diabetes Prediction Admin Portal"
+admin.site.index_title = "Welcome to Heart Disease & Diabetes Prediction Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('predictor.urls')),

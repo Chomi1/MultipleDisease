@@ -17,7 +17,9 @@
             The person is not diagnosed with heart disease.
         {% else %}
             The person has been diagnosed with heart disease. Immediate action may be required.
-            
         {% endif %}
     </p>
+    {% if prediction != 0 %}
+        <a href="{% url 'improve_heart' %}" class="improve-box">tips for health</a>
+        {% endif %}
 {% endblock %}

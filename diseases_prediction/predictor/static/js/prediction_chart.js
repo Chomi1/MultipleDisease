@@ -1,6 +1,6 @@
 // prediction_chart.js
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Function to create and show the pie chart
     function createAndShowPieChart() {
         // Retrieve prediction data from the script tag
