@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import numpy as np
+
 from predictor.algorithm import SVM_classifier, Logistic_Regression
 
 
